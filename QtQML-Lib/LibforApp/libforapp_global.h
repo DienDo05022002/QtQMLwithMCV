@@ -1,0 +1,12 @@
+#ifndef LIBFORAPP_GLOBAL_H
+#define LIBFORAPP_GLOBAL_H
+
+#include <QtCore/qglobal.h>
+
+#if defined(LIBFORAPP_LIBRARY)
+#  define LIBFORAPPSHARED_EXPORT Q_DECL_EXPORT
+#else
+#  define LIBFORAPPSHARED_EXPORT Q_DECL_IMPORT
+#endif
+
+#endif // LIBFORAPP_GLOBAL_H
