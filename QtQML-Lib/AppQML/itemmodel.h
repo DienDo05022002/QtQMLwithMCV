@@ -3,7 +3,6 @@
 
 #include <QObject>
 #include <QAbstractListModel>
-#include "controlleritem.h"
 
 class ItemModel : public QAbstractListModel
 {
@@ -21,13 +20,12 @@ public:
 signals:
 
 public slots:
-    Q_INVOKABLE void addItem(const QString &text);
-    Q_INVOKABLE void removeItem(int index);
-    Q_INVOKABLE void updateItem(int index, const QString &text);
+    void addItem(const QString &text);
+    void removeItem(int index);
+    void updateItem(int index, const QString &text);
 
 private:
     QList<QString> m_items;
-    ControllerItem* m_signals;
 };
 
 #endif // ITEMMODEL_H

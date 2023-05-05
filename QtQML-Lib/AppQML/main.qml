@@ -28,11 +28,11 @@ Rectangle {
             root.isLogged = 0
         }
     }
-    ItemModel {
-        id: itemModel
-    }
+//    ItemModel {
+//        id: itemModel
+//    }
     ControllerItem {
-         id: signalsControllerItem
+         id: signalsController
     }
 //########################################
 
@@ -106,7 +106,7 @@ Rectangle {
             Button {
                 text: qsTr("Add")
                 onClicked: {
-                    itemModel.addItem(inputField.text);
+                    signalsController.signalAddItem(inputField.text);
                     inputField.text = "";
                 }
             }
@@ -116,7 +116,7 @@ Rectangle {
             id: listView
             Layout.fillWidth: true
             Layout.fillHeight: true
-            model: itemModel
+            model: signalsController.getData()
             anchors.bottomMargin: 10
 
             delegate: Row{
@@ -130,13 +130,13 @@ Rectangle {
                 }
                 Button {
                     text: qsTr("Remove")
-                    onClicked: itemModel.removeItem(listView.currentIndex)
+                    onClicked: signalsController.signalRemoveItem(listView.currentIndex)
                 }
 
                 Button {
                     text: qsTr("Update")
                     onClicked: {
-                        itemModel.updateItem(listView.currentIndex, upDate.text);
+                        signalsController.signalUpdateItem(listView.currentIndex, upDate.text);
                         //                        upDate.text =  model.text;
                     }
                 }
